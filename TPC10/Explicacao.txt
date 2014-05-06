@@ -1,0 +1,9 @@
+Na class App é feita a operação .forEach(System.out::println) sobre um Stream<Student>. 
+Explique qual a diferença entre a operação anterior e fazer .forEach(s -> System.out.println(s)), em termos de resultado da compilação e desempenho.
+
+R: No caso da expressão lambda, a execução do codigo gerado é através de um invokeDynamic a uma referência, que referêncía outra referência que referencia a função construida a
+partir da expressão lambda. Resumindo, quando invocamos uma função resultante de uma expressão lambda, o processo dessa invocação passa por duas indireções antes de invocar
+a função.
+
+No caso de System.out::println, a chamada à função println, é feita com apenas uma indireção, tendo menos custos de desempenho que a chamada a uma função gerada por uma 
+expressão lambda.
